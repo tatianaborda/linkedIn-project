@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Meetings Access</title>
+</head>
+<body>
+    <div th:if="${param.error}">User or password incorrect</div>
+    <div th:if="${param.logout}">You have exited the application</div>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <label>User:<input type="text" name="username"/></label>
+        </div>
+        <div>
+            <label>Password:<input type="password" name="password"/></label>
+        </div>
+        <div>
+            <input type="submit" value="enter"/>
+        </div>
+    </form>
+</body>
+</html>

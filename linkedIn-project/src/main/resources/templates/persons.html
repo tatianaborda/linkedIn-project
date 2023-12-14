@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Persons | List</title>
+</head>
+<body>
+<h1>List of Persons</h1>
+<ul>
+    <li th:each="person : ${persons}">
+        <span th:text="${person.name}"></span>
+        <span th:text="${person.surname}"></span>
+    </li>
+</ul>
+<form method="POST" th:action="@{/logout}">
+    <button type="submit">Logout</button>
+</form>
+</body>
+</html>

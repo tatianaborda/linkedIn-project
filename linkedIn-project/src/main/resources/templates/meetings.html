@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Meetings | List</title>
+    </head>
+    <body>
+        <h1>List of Meetings</h1>
+            <ul>
+                <li th:each="meeting : ${meetings}">
+                    <span th:text="${meeting.subject}">Subject</span>
+                    (<span th:text="${#temporals.format(meeting.date, 'dd-MMM-yyyy')}">Date</span>)
+                    <ol>
+                        <li th:each="person : ${meeting.attendees}">
+                            <span th:text="${person.name}">Name</span>
+                            <span th:text="${person.surname}">Surname</span>
+                        </li>
+                    </ol>
+                </li>
+            </ul>
+        <form method="POST" th:action="@{/logout}">
+            <button type="submit">Logout</button>
+        </form>
+    </body>
+</html>
